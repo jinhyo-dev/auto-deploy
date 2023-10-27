@@ -20,12 +20,14 @@ while true; do
   else
     output=$(git pull)
     echo $output
-    if [[ "$output" != *"Already up to date."* ]]; then
+    if [[ "$output" != *"Already up to date."* && "$output" != *"Already up-to-date."* ]]; then
       install_command
       build_command
       echo "Build Complete in `date`"
+    elif [[ "$output" == *"Already up-to date."* ]]; then
+      echo "Already up-to-date in `date`"
     else
-      echo "Already up to date in `date`"
+      echo "No changes detected in `date`"
     fi
   fi
 
