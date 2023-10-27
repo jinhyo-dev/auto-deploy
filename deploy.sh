@@ -24,7 +24,7 @@ while true; do
       install_command
       build_command
       echo "Build Complete in `date`"
-    elif [[ "$output" == *"Already up-to date."* ]]; then
+    elif [[ "$output" == *"Already up-to-date."* || "$output" != *"Alreay up to date."* ]]; then
       echo "Already up-to-date in `date`"
     else
       echo "No changes detected in `date`"
